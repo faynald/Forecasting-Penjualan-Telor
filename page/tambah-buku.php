@@ -45,30 +45,31 @@ if (isset($_POST['submitbuku'])) {
             <div class="col-lg-10 mx-auto">
                 <div class="card">
                     <div class="card-header">
-                        <h1>Tambah Buku</h1>
+                        <h1>Edit Data</h1>
                     </div>
                     <form action="" method="POST">
                         <div class="card-body">
-                            <label>Judul Buku</label>
+                            <label>ID</label>
+                            <input name="judulbuku" class="form-control" type="text" placeholder="Sampang adalah kampung halamanku">    
+                            <label>Tahun</label>
                             <input name="judulbuku" class="form-control" type="text" placeholder="Sampang adalah kampung halamanku">
-                            <label>Pengarang</label>
+                            <label>Bulan</label>
                             <input name="namapengarang" class="form-control" type="text" placeholder="Rijal Racing">
-                            <label>Penerbit</label>
+                            <label>Stok Telur Ayam Kampung</label>
                             <input name="selectpenerbit" list="listpenerbit" class="form-control" placeholder="Nama Penerbit" data-live-search="true">
                             <datalist id="listpenerbit">
                                 <?php foreach ($select_tbpenerbit as $data) { ?>
                                     <option value="<?= $data['nama_penerbit'] ?>"><?= $data['nama_penerbit'] ?></option>
                                 <?php } ?>
                             </datalist>
-                            <label>Harga</label>
+                            <label>Stok Telur Ayam Kota</label>
                             <input name="harga" class="form-control" type="text" placeholder="9000000">
-                            <label>Stok</label>
-                            <input name="stok" type="text" class="form-control">
-                        </div>
-                        <div class="card-footer">
-                            <button type="submit" name="submitbuku" class="btn btn-primary">Simpan</button>
+                            <br><br>
                         </div>
                     </form>
+                    <div class="card-footer">
+                            <div style="margin: 35px;" class="position-absolute bottom-0 end-0"><button type=" button" class="btn btn-primary btn-lg">Edit</button></div>
+                    </div>
                 </div>
             </div>
         </div>
