@@ -68,10 +68,21 @@ if (isset($_POST['submitbutton'])) {
             <div class="card">
                 <div class="card-header">
                     <h1>Forecasting</h1>
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                2021
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <li><a class="dropdown-item" href="#">2022</a></li>
+                                <li><a class="dropdown-item" href="#">2023</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <form action="" method="POST">
                     <div class="card-body">
-                        <label for="">January :</label>
+                        <!-- <label for="">January :</label>
                         <input name="january" type="number" size="10"><br>
                         <label for="">February :</label>
                         <input name="february" type="number" size="10"><br>
@@ -79,9 +90,9 @@ if (isset($_POST['submitbutton'])) {
                         <input name="march" type="number" size="10"><br>
                         <label for="">April :</label>
                         <input name="april" type="number" size="10"><br>
-                        <!-- <label for="">May : <?= $may ?></label> -->
+                        <label for="">May : <?= $may ?></label> 
                         <label for="">=====hasil======</label><br>
-                        <label for="">perkiraan april : <?= $may ?></label><br>
+                        <label for="">perkiraan april : <?= $may ?></label><br>-->
                     </div>
                     <div class="card-footer">
                         <button type="submit" name="submitbutton" class="btn btn-primary">Hitung</button>
@@ -95,8 +106,18 @@ if (isset($_POST['submitbutton'])) {
             <div class="card">
                 <div class="card-header">
                     <h1>Data Penjualan</h1>
-                    <div class="position-absolute top-0 start-0"></div>
-                    <button type="button" class="btn btn-primary">Primary</button>
+                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                        <div class="btn-group" role="group">
+                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                2021
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <li><a class="dropdown-item" href="#">2022</a></li>
+                                <li><a class="dropdown-item" href="#">2023</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="margin: 35px;" class="position-absolute top-0 end-0"><button type=" button" class="btn btn-primary btn-lg">Edit</button></div>
                 </div>
                 <div class="col-lg-10 mx-auto">
                     <div class="card">
@@ -105,31 +126,28 @@ if (isset($_POST['submitbutton'])) {
                                 <table class="table table-hover">
                                     <thead class="thead-light">
                                         <tr>
-                                            <th scope="col">Waktu</th>
-                                            <th scope="col">Judul Buku</th>
-                                            <th scope="col">Jumlah Terjual</th>
-                                            <th scope="col">Nama Pembeli</th>
+                                            <th scope="col">Bulan</th>
+                                            <th scope="col">Telur Ayam Kampung</th>
+                                            <th scope="col">Telur Ayam Kota</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <!--
                                         <?php
                                         foreach ($select_terjual_from_tbriwayat as $data) {
-                                        ?>
-                                            <tr>
-                                                <td>
-                                                    <?= $data['waktu'] ?>
-                                                </td>
-                                                <td>
-                                                    <?= $data['judul_buku'] ?>
-                                                </td>
-                                                <td>
-                                                    <?= $data['perubahan_stok'] ?>
-                                                </td>
-                                                <td>
-                                                    <?= $data['nama_pembeli'] ?>
-                                                </td>
-                                            </tr>
-                                        <?php } ?>
+                                        ?> -->
+                                        <tr>
+                                            <td>
+                                                <!-- <?= $data['waktu'] ?> -->
+                                            </td>
+                                            <td>
+                                                <!-- <?= $data['judul_buku'] ?> -->
+                                            </td>
+                                            <td>
+                                                <!--  <?= $data['perubahan_stok'] ?> -->
+                                            </td>
+                                        </tr>
+                                        <!--<?php } ?> -->
                                     </tbody>
                                 </table>
                             </div>
