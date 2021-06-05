@@ -32,7 +32,7 @@ function triangleActiveList($list){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bookstore</title>
+    <title>Forecasting Penjualan Telur</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 </head>
@@ -44,7 +44,6 @@ function triangleActiveList($list){
             <i class="fa fa-bars pr-10"></i> Menu
         </div>
         <a href="index.php?page=dashboard" class="<?= activeList('dashboard') ?>"><i class="fa fa-book pr-15"></i> Dashboard <?= triangleActiveList('dashboard') ?></a>
-        <a href="index.php?page=laporan" class="<?= activeList('laporan') ?>"><i class="fa fa-pencil pr-15"></i> Laporan <?= triangleActiveList('laporan') ?></a>
         <a href="index.php?page=edit-data" class="<?= activeList('edit-data') ?>"><i class="fa fa-plus pr-15"></i> Edit Data <?= triangleActiveList('edit-data') ?></a>
         <a href="logout.php" class="fixed-bottom my-4"><i class="fa fa-sign-out-alt pr-15"></i>Log out</a>
         

@@ -5,7 +5,7 @@ session_start();
 $username = $_POST["username"];
 $password = $_POST["password"];
 
-$select = mysqli_query($connection, "SELECT * FROM tb_user WHERE USERNAME='$username' && PASSWORD='$password'");
+$select = mysqli_query($connection, "SELECT * FROM user WHERE USERNAME='$username' && PASSWORD='$password'");
 $num = mysqli_num_rows($select);
 
 if ($num == 0) {
@@ -18,7 +18,7 @@ if ($num == 0) {
 } else {
     while ($data = mysqli_fetch_array($select)) {
         $_SESSION["username"] = $data["username"];
-        $_SESSION["nama"] = $data["nama"];
+        $_SESSION["nama"] = $data["nama_user"];
     }
     header("location:../index.php");
 }
