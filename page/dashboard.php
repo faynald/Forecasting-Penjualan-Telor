@@ -13,6 +13,10 @@ if (isset($_POST['submitbutton'])) {
     // 2. mengetahui banyaknya data. jika data 4 = pake weight 4321
     //      jika data 3 = pake weight 532 atay 721
 }
+function barColor($color, $height){
+    $height = $height;
+    echo "style='background: $color; height: $height%;'";
+}
 ?>
 <div class="container-fluid">
     <div class="row">
@@ -82,6 +86,65 @@ if (isset($_POST['submitbutton'])) {
                 </div>
                 <form action="" method="POST">
                     <div class="card-body">
+                        <table>
+                            <tr class="tr-bar">
+                                <td class="td-bar">
+                                    <div class="div-bar" <?= barColor('green', '50') ?>>50</div>
+                                </td>
+                                <td class="td-bar">
+                                    <div class="div-bar" <?= barColor('red', '46') ?>>46</div>
+                                </td>
+                                <td class="td-bar">
+                                    <div class="div-bar" <?= barColor('red', '44') ?>>44</div>
+                                </td>
+                                <td class="td-bar">
+                                    <div class="div-bar" <?= barColor('green', '58') ?>>58</div>
+                                </td>
+                                <td class="td-bar">
+                                    <div class="div-bar" <?= barColor('green', '71') ?>>71</div>
+                                </td>
+                                <td class="td-bar">
+                                    <div class="div-bar" <?= barColor('red', '65') ?>>75</div>
+                                </td>
+                                <td class="td-bar">
+                                    <div class="div-bar" <?= barColor('green', '73') ?>>73</div>
+                                </td>
+                                <td class="td-bar">
+                                    <div class="div-bar" <?= barColor('green', '78') ?>>78</div>
+                                </td>
+                                <td class="td-bar">
+                                    <div class="div-bar" <?= barColor('green', '80') ?>>80</div>
+                                </td>
+                                <td class="td-bar">
+                                    <div class="div-bar" <?= barColor('red', '90') ?>>90</div>
+                                </td>
+                                <td class="td-bar">
+                                    <div class="div-bar" <?= barColor('green', '100') ?>>100</div>
+                                </td>
+                                <td class="td-bar">
+                                    <div class="div-bar" <?= barColor('red', '97') ?>>97</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!-- divider -->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Januari</td>
+                                <td>Februari</td>
+                                <td>Maret</td>
+                                <td>April</td>
+                                <td>Mei</td>
+                                <td>Juni</td>
+                                <td>Juli</td>
+                                <td>Agustus</td>
+                                <td>September</td>
+                                <td>Oktober</td>
+                                <td>November</td>
+                                <td>Desember</td>
+                            </tr>
+                        </table>
                         <!-- <label for="">January :</label>
                         <input name="january" type="number" size="10"><br>
                         <label for="">February :</label>

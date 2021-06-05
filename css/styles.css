@@ -138,3 +138,26 @@ form.search button {
     float: right;
     clip-path: polygon(100% 21%, 65% 48%, 100% 80%);
 }
+
+/* Bar Chart */
+.tr-bar {
+    height: 300px;
+}
+
+td {
+    width: 80px;
+    text-align: center;
+}
+
+.td-bar {
+    position: relative;
+}
+
+.div-bar {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    color: wheat;
+    font-style: oblique;
+    clip-path: polygon(10% 0, 90% 0, 90% 100%, 10% 100%);
+} /* End of Bar Chart */
