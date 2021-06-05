@@ -6,16 +6,16 @@
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #111;
+    background-color: rgb(35, 60, 90);
     overflow-x: hidden;
     padding-top: 20px;
 }
 
 .sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding: 8px 0px 8px 32px;
     text-decoration: none;
     font-size: 20px;
-    color: #818181;
+    color: #b9b9b9;
     display: block;
     transition: 0.3s;
 }
@@ -28,7 +28,7 @@
     font-size: 25px;
     color: #ffffff;
     display: block;
-    background: rgb(53, 104, 182);
+    background: rgb(23, 98, 168);
 }
 
 .sidenav a:hover {
@@ -130,4 +130,11 @@ form.search button {
     font-size: 17px;
     border: none;
     transition: 0.3s;
+}
+
+.whitebg {
+    background: white;
+    width: 25px;
+    float: right;
+    clip-path: polygon(100% 21%, 65% 48%, 100% 80%);
 }

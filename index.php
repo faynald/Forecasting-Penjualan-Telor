@@ -16,6 +16,12 @@ function activeList($list){
         echo "active";
     }
 }
+function triangleActiveList($list){
+    $pagenow = $_GET['page'];
+    if(getpage($pagenow, $list)){
+        echo '<div class="whitebg">&nbsp;</div>';
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,10 +41,11 @@ function activeList($list){
         <div class="sidenav-header horizontal-center">
             <i class="fa fa-bars pr-10"></i> Menu
         </div>
-        <a href="index.php?page=dashboard" class="<?= activeList('dashboard') ?>"><i class="fa fa-book pr-15"></i> Dashboard</a>
-        <a href="index.php?page=laporan" class="<?= activeList('laporan') ?>"><i class="fa fa-pencil pr-15"></i> Laporan</a>
-        <a href="index.php?page=tambah-buku" class="<?= activeList('tambah-buku') ?>"><i class="fa fa-plus pr-15"></i> Tambah Buku lah</a>
+        <a href="index.php?page=dashboard" class="<?= activeList('dashboard') ?>"><i class="fa fa-book pr-15"></i> Dashboard <?= triangleActiveList('dashboard') ?></a>
+        <a href="index.php?page=laporan" class="<?= activeList('laporan') ?>"><i class="fa fa-pencil pr-15"></i> Laporan <?= triangleActiveList('laporan') ?></a>
+        <a href="index.php?page=edit-data" class="<?= activeList('edit-data') ?>"><i class="fa fa-plus pr-15"></i> Edit Data <?= triangleActiveList('edit-data') ?></a>
         <a href="logout.php" class="fixed-bottom my-4"><i class="fa fa-sign-out-alt pr-15"></i>Log out</a>
+        
     </div>
     <!-- Konten -->
     <?php
