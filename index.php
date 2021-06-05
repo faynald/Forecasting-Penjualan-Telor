@@ -11,15 +11,17 @@ function getpage($pattern, $subject)
     return (bool) preg_match("/^{$pattern}$/i", $subject);
 }
 function activeList($list){
-    $pagenow = $_GET['page'];
-    if(getpage($pagenow, $list)){
-        echo "active";
+    if (isset($_GET["page"])) {
+        if(getpage($_GET['page'], $list)){
+            echo "active";
+        }
     }
 }
 function triangleActiveList($list){
-    $pagenow = $_GET['page'];
-    if(getpage($pagenow, $list)){
-        echo '<div class="whitebg">&nbsp;</div>';
+    if (isset($_GET["page"])) {
+        if(getpage($_GET['page'], $list)){
+            echo '<div class="whitebg">&nbsp;</div>';
+        }
     }
 }
 ?>
