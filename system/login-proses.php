@@ -21,6 +21,8 @@ if ($num == 0) {
         $_SESSION["nama"] = $data["nama_user"];
         $_SESSION['tahun'] = 2021;
         $_SESSION['bulan'] = 'Juni';
+        $_SESSION['tahun_grafik'] = 2021;
+        $_SESSION['tipe_telur'] = 'telur_ayam_kampung';
     }
     header("location:../index.php");
 }

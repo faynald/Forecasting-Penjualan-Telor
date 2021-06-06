@@ -3,6 +3,18 @@ function barColor($color, $height){
     $height = $height;
     echo "style='background: $color; height: $height%;'";
 }
+$monthIND = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+$select_forecasting_tahun = mysqli_query($connection, "SELECT DISTINCT tahun FROM forecasting ORDER BY tahun");
+$tipe_telur_list = ['telur_ayam_kampung', 'telur_ayam_kota'];
+$tipe_telur_label = ['Telur Ayam Kampung', 'Telur Ayam Kota'];
+$tahun_list = [];
+foreach ($select_forecasting_tahun as $row){
+    array_push($tahun_list, $row['tahun']);
+}
+if (isset($_POST['select_tahun_grafik'])){
+    $_SESSION['tahun_grafik'] = $_POST['select_tahun_grafik'];
+    $_SESSION['tipe_telur'] = $_POST['select_tipe_telur'];
+}
 ?>
 <div class="container-fluid">
     <div class="row">
@@ -52,53 +64,54 @@ function barColor($color, $height){
             <div class="card">
                 <div class="card-header">
                     <h1>Forecasting</h1>
-                    Tahun : 
-                    <select name="select_tahun">
-                        <option value="2020">2020</option>
-                        <option value="2021" selected>2021</option>
-                        <option value="2022">2022</option>
-                    </select>
+                    <form action="" method="POST">
+                        <select name="select_tahun_grafik" onchange="submit()">
+                            <?php 
+                                foreach ($tahun_list as $array_value){
+                                    if ($array_value == $_SESSION['tahun_grafik']){
+                                        echo "<option value='$array_value' selected>$array_value</option>";
+                                    }else{
+                                        echo "<option value='$array_value'>$array_value</option>";
+                                    }
+                                } 
+                            ?>
+                        </select>
+                        <select name="select_tipe_telur" onchange="submit()">
+                            <?php
+                                for ($i = 0; $i<2; $i++ ){
+                                    if ($tipe_telur_list[$i] == $_SESSION['tipe_telur']){
+                                        echo "<option value='$tipe_telur_list[$i]' selected>$tipe_telur_label[$i]</option>";
+                                    }else{
+                                        echo "<option value='$tipe_telur_list[$i]'>$tipe_telur_label[$i]</option>";
+                                    }
+                                } 
+                            ?>
+                        </select>
+                    </form>
                 </div>
                 <form action="" method="POST">
                     <div class="card-body barchart">
                         <table>
                             <tr class="tr-bar">
-                                <td class="td-bar">
-                                    <div class="div-bar" <?= barColor('green', '50') ?>>50</div>
-                                </td>
-                                <td class="td-bar">
-                                    <div class="div-bar" <?= barColor('red', '46') ?>>46</div>
-                                </td>
-                                <td class="td-bar">
-                                    <div class="div-bar" <?= barColor('red', '44') ?>>44</div>
-                                </td>
-                                <td class="td-bar">
-                                    <div class="div-bar" <?= barColor('green', '58') ?>>58</div>
-                                </td>
-                                <td class="td-bar">
-                                    <div class="div-bar" <?= barColor('green', '71') ?>>71</div>
-                                </td>
-                                <td class="td-bar">
-                                    <div class="div-bar" <?= barColor('red', '65') ?>>75</div>
-                                </td>
-                                <td class="td-bar">
-                                    <div class="div-bar" <?= barColor('green', '73') ?>>73</div>
-                                </td>
-                                <td class="td-bar">
-                                    <div class="div-bar" <?= barColor('green', '78') ?>>78</div>
-                                </td>
-                                <td class="td-bar">
-                                    <div class="div-bar" <?= barColor('green', '80') ?>>80</div>
-                                </td>
-                                <td class="td-bar">
-                                    <div class="div-bar" <?= barColor('red', '90') ?>>90</div>
-                                </td>
-                                <td class="td-bar">
-                                    <div class="div-bar" <?= barColor('green', '100') ?>>100</div>
-                                </td>
-                                <td class="td-bar">
-                                    <div class="div-bar" <?= barColor('red', '97') ?>>97</div>
-                                </td>
+                            <?php 
+                                $selected_tahun_grafik = $_SESSION['tahun_grafik'];
+                                $selected_tipe_telur = $_SESSION['tipe_telur'];
+                                $select_from_forecasting = mysqli_query($connection,"SELECT * FROM forecasting WHERE tahun = $selected_tahun_grafik");
+                                $nilai_yang_lalu = 0;
+                                $warna_bar = 'green';
+                                for ($i = 0; $i<12; $i++ ){
+                                    foreach ($select_from_forecasting as $row){ 
+                                        if ($row[$selected_tipe_telur] < $nilai_yang_lalu){
+                                            $warna_bar = 'red';
+                                        }else{
+                                            $warna_bar = 'green';
+                                        }
+                                        if ($monthIND[$i] == $row['bulan']){ ?>
+                                            <td class="td-bar">
+                                                <div class="div-bar" <?= barColor($warna_bar, $row[$selected_tipe_telur]) ?>><?= $row[$selected_tipe_telur] ?></div>
+                                            </td>
+                                        <?php $nilai_yang_lalu = $row[$selected_tipe_telur];
+                                    }}} ?>
                             </tr>
                             <tr>
                                 <td>
@@ -120,9 +133,6 @@ function barColor($color, $height){
                                 <td>Desember</td>
                             </tr>
                         </table>
-                    </div>
-                    <div class="card-footer">
-                        <button type="submit" name="submitbutton" class="btn btn-primary">Hitung</button>
                     </div>
                 </form>
             </div>
