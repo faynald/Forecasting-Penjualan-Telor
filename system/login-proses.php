@@ -19,6 +19,8 @@ if ($num == 0) {
     while ($data = mysqli_fetch_array($select)) {
         $_SESSION["username"] = $data["username"];
         $_SESSION["nama"] = $data["nama_user"];
+        $_SESSION['tahun'] = 2021;
+        $_SESSION['bulan'] = 'Juni';
     }
     header("location:../index.php");
 }

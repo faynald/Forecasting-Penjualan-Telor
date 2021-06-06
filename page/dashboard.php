@@ -1,18 +1,4 @@
 <?php
-$may = 0;
-if (isset($_POST['submitbutton'])) {
-    $january = $_POST['january'];
-    $february = $_POST['february'];
-    $march = $_POST['march'];
-    $april = $_POST['april'];
-    $monthlist = [$january, $february, $march];
-    $count = count($monthlist);
-    $weight = [0.1, 0.2, 0.7];
-    $may = ($monthlist[$count - 3] * $weight[0]) + ($monthlist[$count - 2] * $weight[1]) + ($monthlist[$count - 1] * $weight[2]);
-    // 1. deklarasi variable array
-    // 2. mengetahui banyaknya data. jika data 4 = pake weight 4321
-    //      jika data 3 = pake weight 532 atay 721
-}
 function barColor($color, $height){
     $height = $height;
     echo "style='background: $color; height: $height%;'";
@@ -24,21 +10,16 @@ function barColor($color, $height){
             <div class="card card-stats">
                 <!-- Card body -->
                 <div class="card-body">
-                    <img src="./images/book sold.png" class="card-img" alt="" style="width: 9rem;">
+                    <img src="./images/egg-sold.png" class="card-img" alt="" style="width: 8rem;">
                     <div class="card-img-overlay">
                         <div class="row">
                             <div class="col">
-                                <h5 class="card-title text-uppercase text-muted mb-0">Total Penjualan Hari Ini </h5>
-                                <!--<span class="h2 font-weight-bold mb-0">
+                                <h5 class="card-title text-uppercase text-muted mb-0">Bulan ini </h5>
+                                <span class="h2 font-weight-bold mb-0">
                                     <label id="periodBalance">
-                                        <?= $count_terjual ?>
-                                    </label> -->
+                                        55
+                                    </label>
                                 </span>
-                            </div>
-                            <div class="col-auto">
-                                <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
-                                    <i class="ni ni-chart-bar-32"></i>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -49,17 +30,16 @@ function barColor($color, $height){
             <div class="card card-stats">
                 <!-- Card body -->
                 <div class="card-body">
-                    <img src="./images/book.png" class="card-img" alt="" style="width: 9rem;">
+                    <img src="./images/forecasting-icon.png" class="card-img" alt="" style="width: 9rem;">
                     <div class="card-img-overlay">
                         <div class="row">
                             <div class="col">
-                                <h5 class="card-title text-uppercase text-muted mb-0 ">Perkiraan Penjualan Bulan depan</h5>
-                                <!--<span class="h2 font-weight-bold mb-0"><label id="balance"><?= $count_stoktersedia ?></label></span> -->
-                            </div>
-                            <div class="col-auto">
-                                <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
-                                    <i class="ni ni-chart-pie-35"></i>
-                                </div>
+                                <h5 class="card-title text-uppercase text-muted mb-0">Perkiraan Bulan Depan </h5>
+                                <span class="h2 font-weight-bold mb-0">
+                                    <label id="periodBalance">
+                                        58
+                                    </label>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -72,20 +52,15 @@ function barColor($color, $height){
             <div class="card">
                 <div class="card-header">
                     <h1>Forecasting</h1>
-                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                        <div class="btn-group" role="group">
-                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                2021
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                <li><a class="dropdown-item" href="#">2022</a></li>
-                                <li><a class="dropdown-item" href="#">2023</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    Tahun : 
+                    <select name="select_tahun">
+                        <option value="2020">2020</option>
+                        <option value="2021" selected>2021</option>
+                        <option value="2022">2022</option>
+                    </select>
                 </div>
                 <form action="" method="POST">
-                    <div class="card-body">
+                    <div class="card-body barchart">
                         <table>
                             <tr class="tr-bar">
                                 <td class="td-bar">
@@ -145,17 +120,6 @@ function barColor($color, $height){
                                 <td>Desember</td>
                             </tr>
                         </table>
-                        <!-- <label for="">January :</label>
-                        <input name="january" type="number" size="10"><br>
-                        <label for="">February :</label>
-                        <input name="february" type="number" size="10"><br>
-                        <label for="">March :</label>
-                        <input name="march" type="number" size="10"><br>
-                        <label for="">April :</label>
-                        <input name="april" type="number" size="10"><br>
-                        <label for="">May : <?= $may ?></label> 
-                        <label for="">=====hasil======</label><br>
-                        <label for="">perkiraan april : <?= $may ?></label><br>-->
                     </div>
                     <div class="card-footer">
                         <button type="submit" name="submitbutton" class="btn btn-primary">Hitung</button>

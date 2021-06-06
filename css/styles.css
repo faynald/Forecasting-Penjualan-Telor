@@ -144,7 +144,7 @@ form.search button {
     height: 300px;
 }
 
-td {
+.barchart td {
     width: 80px;
     text-align: center;
 }
@@ -161,3 +161,7 @@ td {
     font-style: oblique;
     clip-path: polygon(10% 0, 90% 0, 90% 100%, 10% 100%);
 } /* End of Bar Chart */
+
+.fa-exclamation-circle {
+    color: red !important;
+}
