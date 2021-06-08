@@ -45,8 +45,7 @@ function triangleActiveList($list){
         </div>
         <a href="index.php?page=dashboard" class="<?= activeList('dashboard') ?>"><i class="fa fa-book pr-15"></i> Dashboard <?= triangleActiveList('dashboard') ?></a>
         <a href="index.php?page=edit-data" class="<?= activeList('edit-data') ?>"><i class="fa fa-plus pr-15"></i> Edit Data <?= triangleActiveList('edit-data') ?></a>
-        <a href="logout.php" class="fixed-bottom my-4"><i class="fa fa-sign-out-alt pr-15"></i>Log out</a>
-        
+        <a href="logout.php" class="logout my-4"><i class="fa fa-sign-out-alt pr-15"></i>Log out</a>
     </div>
     <!-- Konten -->
     <?php
